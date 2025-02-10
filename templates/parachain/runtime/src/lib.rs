@@ -185,7 +185,7 @@ mod block_times {
 	/// slot_duration()`.
 	///
 	/// Change this to adjust the block time.
-	pub const MILLI_SECS_PER_BLOCK: u64 = 6000;
+	pub const MILLI_SECS_PER_BLOCK: u64 = RELAY_CHAIN_SLOT_DURATION_MILLIS / MAX_BLOCK_PROCESSING_VELOCITY;
 
 	// NOTE: Currently it is not possible to change the slot duration after the chain has started.
 	// Attempting to do so will brick block production.
@@ -225,10 +225,10 @@ const MAXIMUM_BLOCK_WEIGHT: Weight = Weight::from_parts(
 mod async_backing_params {
 	/// Maximum number of blocks simultaneously accepted by the Runtime, not yet included
 	/// into the relay chain.
-	pub(crate) const UNINCLUDED_SEGMENT_CAPACITY: u32 = 3;
+	pub(crate) const UNINCLUDED_SEGMENT_CAPACITY: u32 = 2 * MAX_BLOCK_PROCESSING_VELOCITY + 1;
 	/// How many parachain blocks are processed by the relay chain per parent. Limits the
 	/// number of blocks authored per slot.
-	pub(crate) const BLOCK_PROCESSING_VELOCITY: u32 = 1;
+	pub(crate) const MAX_BLOCK_PROCESSING_VELOCITY: u32 = 3;
 	/// Relay chain slot duration, in milliseconds.
 	pub(crate) const RELAY_CHAIN_SLOT_DURATION_MILLIS: u32 = 6000;
 }
@@ -239,7 +239,7 @@ pub(crate) use async_backing_params::*;
 type ConsensusHook = cumulus_pallet_aura_ext::FixedVelocityConsensusHook<
 	Runtime,
 	RELAY_CHAIN_SLOT_DURATION_MILLIS,
-	BLOCK_PROCESSING_VELOCITY,
+	MAX_BLOCK_PROCESSING_VELOCITY,
 	UNINCLUDED_SEGMENT_CAPACITY,
 >;
 
