@@ -20,3 +20,4 @@ chain_spec_path = "./dev_chain_spec.json"
 name = "charlie"
 ws_port = 9988
 command = "polkadot-omni-node"
+args = [ "--experimental-use-slot-based" ]
