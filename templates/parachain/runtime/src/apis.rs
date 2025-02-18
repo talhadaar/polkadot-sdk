@@ -247,7 +247,7 @@ impl_runtime_apis! {
 	}
 
 	impl polkadot_sdk::cumulus_primitives_core::GetCoreSelectorApi<Block> for Runtime {
-		fn core_selector() -> (CoreSelector, ClaimQueueOffset) {
+		fn core_selector() -> (cumulus_primitives_core::CoreSelector, cumulus_primitives_core::ClaimQueueOffset) {
 			ParachainSystem::core_selector()
 		}
 	}
