@@ -229,7 +229,7 @@ mod async_backing_params {
 	pub(crate) const UNINCLUDED_SEGMENT_CAPACITY: u32 = 2 * MAX_BLOCK_PROCESSING_VELOCITY + 1;
 	/// How many parachain blocks are processed by the relay chain per parent. Limits the
 	/// number of blocks authored per slot.
-	pub(crate) const MAX_BLOCK_PROCESSING_VELOCITY: u32 = 3;
+	pub(crate) const MAX_BLOCK_PROCESSING_VELOCITY: u32 = 12;
 	/// Relay chain slot duration, in milliseconds.
 	pub(crate) const RELAY_CHAIN_SLOT_DURATION_MILLIS: u32 = 6000;
 }
