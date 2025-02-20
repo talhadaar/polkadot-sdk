@@ -167,10 +167,10 @@ impl_opaque_keys! {
 
 #[sp_version::runtime_version]
 pub const VERSION: RuntimeVersion = RuntimeVersion {
-	spec_name: alloc::borrow::Cow::Borrowed("parachain-template-runtime"),
-	impl_name: alloc::borrow::Cow::Borrowed("parachain-template-runtime"),
+	spec_name: alloc::borrow::Cow::Borrowed("peaq-node"),
+	impl_name: alloc::borrow::Cow::Borrowed("peaq-node"),
 	authoring_version: 1,
-	spec_version: 1,
+	spec_version: 104,
 	impl_version: 0,
 	apis: apis::RUNTIME_API_VERSIONS,
 	transaction_version: 1,
